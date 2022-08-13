@@ -14,3 +14,10 @@
     * Materials used for disposal
     * Producing a report based on the collected data
 
+# Outputs
+1. # Finding the ratio upto which cans are filled
+![Proccesed images](https://github.com/DeVcB13d/Waste-Management-aided-by-image-analysis/blob/main/docs/fill_46.png)
+![Proccesed images](https://github.com/DeVcB13d/Waste-Management-aided-by-image-analysis/blob/main/docs/fill_10.png)
+![Proccesed images](https://github.com/DeVcB13d/Waste-Management-aided-by-image-analysis/blob/main/docs/fill_80.png)
+![Proccesed images](https://github.com/DeVcB13d/Waste-Management-aided-by-image-analysis/blob/main/docs/fill_84.png)
+![Website](https://github.com/DeVcB13d/Waste-Management-aided-by-image-analysis/blob/main/docs/output%20images/webpage.jpg)
