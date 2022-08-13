@@ -2,8 +2,7 @@ import os
 from detector import *
 import cv2 as cv
 import numpy as np
-import time
-import random
+import matplotlib.pyplot as plt
 
 
 detector = DepthDetector()
@@ -12,9 +11,21 @@ empty = cv.imread("Image_Processing\Test\empty.jpg")
 p_empty = detector.preprocess(empty)
 # cv.imshow("empty",p_empty)
 
+def plot_image(image_1, image_2,title_1,title_2):
+    plt.figure(figsize=(5,5))
+    plt.subplot(1, 2, 1)
+    plt.imshow(image_1,cmap="gray")
+    plt.title(title_1)
+    plt.subplot(1, 2, 2)
+    plt.imshow(image_2,cmap="gray")
+    plt.title(title_2)
+    plt.show()
+
 images = os.listdir(r"C:\Users\USER\Waste-Management-aided-by-image-analysis\Image_Processing\Test")
 DIR = r"C:\Users\USER\Waste-Management-aided-by-image-analysis\Image_Processing\Test"
 data = []
+empty = cv.imread(os.path.join(DIR,"empty.jpg"))
+p_empty = detector.preprocess(empty)
 for i in images:
     img_path = os.path.join(DIR,i)
     img = cv.imread(img_path)
@@ -24,10 +35,11 @@ for i in images:
     perc = detector.get_depth_perc(p_empty,p_img)
     perc2 = detector.get_depth_perc_approx(p_empty,p_img,20)
     data.append(round(perc2,2))
+    # Perc -> returns the value from image center
     print(i," ",perc,"%")
+    # Perc2 -> return the value averged over different centres
     print(i," ",perc2,"%")
-    # cv.imshow("process",p_img)
-    # cv.waitKey(0)
+    plot_image(p_empty,p_img,("empty : 0%"),("filled : "+str(perc2)+"%"))
 
 import webbrowser
 import time
